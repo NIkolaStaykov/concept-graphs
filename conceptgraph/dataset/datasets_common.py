@@ -1048,7 +1048,7 @@ class LSY_Dataset(GradSLAMDataset):
         )
 
     def get_filepaths(self):
-        color_paths = natsorted(glob.glob(f"{self.input_folder}/results/frame*.jpg"))
+        color_paths = natsorted(glob.glob(f"{self.input_folder}/results/frame*.png"))
         depth_paths = natsorted(glob.glob(f"{self.input_folder}/results/depth*.png"))
         embedding_paths = None
         if self.load_embeddings:
@@ -1064,12 +1064,6 @@ class LSY_Dataset(GradSLAMDataset):
         for i in range(self.num_imgs):
             line = lines[i]
             c2w = np.array(list(map(float, line.split()))).reshape(4, 4)
-            temp = np.copy(c2w)
-            c2w[:3, 0] = temp[:3, 1]
-            c2w[:3, 1] = -1*temp[:3, 0]
-            c2w[0, 3] = -temp[1, 3]
-            c2w[1, 3] = temp[0, 3]
-            c2w[2, 3] = -temp[2, 3]
             c2w = torch.from_numpy(c2w).float()
             poses.append(c2w)
         return poses

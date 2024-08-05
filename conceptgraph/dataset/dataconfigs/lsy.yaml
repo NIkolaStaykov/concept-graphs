@@ -3,9 +3,9 @@ dataset_name: 'lsy'
 camera_params:
   image_height: 720
   image_width: 1280
-  fx: 762.72
-  fy: 754.75
-  cx: 640.0
-  cy: 360.0
+  fx: 743.5433289457945
+  fy: 743.9641328115271
+  cx: 641.1429578693269
+  cy: 354.0485833258232
   png_depth_scale: 1000 #for depth image in png format
   crop_edge: 0

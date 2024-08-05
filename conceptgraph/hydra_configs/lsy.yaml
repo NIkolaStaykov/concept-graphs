@@ -1,6 +1,6 @@
 defaults:
   - base_paths
 
-dataset_root: ${data_root}/extracted_data
+dataset_root: ${data_root}/lsy_data/cg_sai_processed/floor_simple
 dataset_config: ${repo_root}/conceptgraph/dataset/dataconfigs/lsy.yaml
-scene_id: run_1
+scene_id: calibrated/aligned
